@@ -1,0 +1,54 @@
+{
+  "englishTasks": [
+    {
+      "type": "Video",
+      "label": "Video · Tugas 01",
+      "icon": "videocam",
+      "number": "01",
+      "title": "Self Introduction",
+      "description": "Video singkat yang memperkenalkan diri dalam bahasa Inggris dengan fokus pada latar belakang akademik, pendidikan, dan minat terhadap teknologi dan komunikasi profesional.",
+      "url": "https://drive.google.com/drive/folders/1QgQN6shxXSQ0hVyBzH8rENavT6aXle5b?usp=drive_link",
+      "variant": "intro"
+    },
+    {
+      "type": "PDF",
+      "label": "PDF · Tugas 02",
+      "icon": "picture_as_pdf",
+      "number": "02",
+      "title": "Professional Writing for Online Shopping",
+      "description": "Surat keluhan formal dalam bahasa Inggris yang menjelaskan masalah pengiriman, menegaskan kondisi yang tidak sesuai, dan menuntut solusi yang adil dengan gaya komunikasi bisnis.",
+      "url": "#",
+      "variant": "writing"
+    },
+    {
+      "type": "Video",
+      "label": "Video · Tugas 03",
+      "icon": "videocam",
+      "number": "03",
+      "title": "Thesis Background & English Academic Journal",
+      "description": "Gambaran analitis tentang latar belakang penelitian, review literatur, dan alasan akademik di balik topik skripsi dalam bahasa Inggris yang jelas dan terstruktur.",
+      "url": "https://drive.google.com/drive/folders/14466WvwX5jSZVt3sEfuupRhO4LHOG9Di?usp=drive_link",
+      "variant": "thesis"
+    },
+    {
+      "type": "Pdf",
+      "label": "Pdf · Tugas 04",
+      "icon": "picture_as_pdf",
+      "number": "04",
+      "title": "Professional CV",
+      "description": "A Professional Curiculum Vitae that written in english",
+      "url": "https://drive.google.com/drive/folders/1ZKYh86pv1CAsE7epIl2liqzb1pcYLhYD?usp=drive_link",
+      "variant": "CV"
+    },
+    {
+      "type": "Folder",
+      "label": "Folder · UTS",
+      "icon": "picture_as_pdf",
+      "number": "05",
+      "title": "Midterm Exam",
+      "description": "Folder containing midterm exam answers",
+      "url": "https://drive.google.com/drive/folders/1WJpsOQFscnHbzS_xrC1nUiXcaiywy7ca?hl=ID",
+      "variant": "Midterm Exam"
+    }
+  ]
+}

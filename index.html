@@ -19,338 +19,10 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
-    <style>
-      @layer base {
-        html,
-        body {
-          margin: 0;
-          padding: 0;
-          scroll-behavior: smooth;
-        }
-        body {
-          overscroll-behavior: none;
-        }
-        main > :first-child {
-          margin-top: 0 !important;
-        }
-        main > :last-child {
-          margin-bottom: 0 !important;
-        }
-      }
-      ::-webkit-scrollbar {
-        display: none;
-      }
-
-      /* Custom Keyframes & Motion Classes */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(22px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes cursorBlink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-      }
-
-      @keyframes radarPing {
-        0% {
-          transform: scale(1);
-          opacity: 0.8;
-        }
-        70% {
-          transform: scale(2.2);
-          opacity: 0;
-        }
-        100% {
-          transform: scale(2.4);
-          opacity: 0;
-        }
-      }
-
-      .animate-radar {
-        animation: radarPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
-      }
-
-      .cursor-blink {
-        animation: cursorBlink 0.9s infinite;
-      }
-
-      .hero-fade-1 {
-        animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-      .hero-fade-2 {
-        animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
-        opacity: 0;
-      }
-      .hero-fade-3 {
-        animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-        opacity: 0;
-      }
-      .hero-fade-4 {
-        animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
-        opacity: 0;
-      }
-
-      /* Scroll-triggered reveal state */
-      .reveal-item {
-        opacity: 0;
-        transform: translateY(28px);
-        transition:
-          opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: opacity, transform;
-      }
-      .reveal-item.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Interactive Pill Badges */
-      .tech-pill {
-        transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .tech-pill:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      }
-
-      /* Ambient dynamic mouse glow */
-      #ambient-glow {
-        pointer-events: none;
-        position: fixed;
-        width: 480px;
-        height: 480px;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(148, 73, 49, 0.045) 0%,
-          rgba(253, 157, 128, 0.015) 45%,
-          transparent 70%
-        );
-        transform: translate(-50%, -50%);
-        z-index: 40;
-        transition: opacity 0.4s ease;
-      }
-
-      /* Code block line highlight */
-      .code-line {
-        display: block;
-        transition: background-color 0.18s ease;
-        padding: 0 4px;
-        border-radius: 2px;
-      }
-      .code-line:hover {
-        background-color: rgba(148, 73, 49, 0.08);
-      }
-
-      /* Responsive motion-reduction */
-      @media (prefers-reduced-motion: reduce) {
-        .hero-fade-1,
-        .hero-fade-2,
-        .hero-fade-3,
-        .hero-fade-4,
-        .reveal-item {
-          animation: none !important;
-          opacity: 1 !important;
-          transform: none !important;
-          transition: none !important;
-        }
-        #ambient-glow {
-          display: none !important;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "secondary-container": "#fd9d80",
-              "on-secondary-fixed": "#3a0a00",
-              "on-primary-container": "#91817a",
-              "on-tertiary-fixed": "#141e11",
-              "inverse-primary": "#d5c3bb",
-              "surface-container-low": "#f6f3ed",
-              "primary-container": "#241a15",
-              tertiary: "#000200",
-              "surface-tint": "#6a5b55",
-              "on-secondary-container": "#77331d",
-              primary: "#030100",
-              background: "#fcf9f3",
-              "on-tertiary-container": "#7c8875",
-              "on-primary-fixed-variant": "#51443e",
-              "surface-variant": "#e5e2dc",
-              "secondary-fixed": "#ffdbd0",
-              "surface-container-lowest": "#ffffff",
-              "on-tertiary": "#ffffff",
-              "inverse-surface": "#31312d",
-              "on-error-container": "#93000a",
-              "surface-bright": "#fcf9f3",
-              "surface-container-high": "#ebe8e2",
-              "on-error": "#ffffff",
-              surface: "#fcf9f3",
-              "surface-container": "#f0eee8",
-              "surface-dim": "#dcdad4",
-              "primary-fixed-dim": "#d5c3bb",
-              "on-background": "#1c1c18",
-              error: "#ba1a1a",
-              "on-surface-variant": "#4e4541",
-              "surface-container-highest": "#e5e2dc",
-              "inverse-on-surface": "#f3f0ea",
-              outline: "#807570",
-              "tertiary-fixed": "#dae7d0",
-              "on-tertiary-fixed-variant": "#3f4a3a",
-              "tertiary-fixed-dim": "#becab5",
-              "on-primary": "#ffffff",
-              "on-surface": "#1c1c18",
-              "primary-fixed": "#f2dfd6",
-              "error-container": "#ffdad6",
-              "tertiary-container": "#151f11",
-              "secondary-fixed-dim": "#ffb59f",
-              "on-secondary-fixed-variant": "#76321d",
-              "on-secondary": "#ffffff",
-              "on-primary-fixed": "#231914",
-              secondary: "#944931",
-              "outline-variant": "#d1c4be",
-            },
-            borderRadius: {
-              DEFAULT: "0.125rem",
-              lg: "0.25rem",
-              xl: "0.5rem",
-              full: "0.75rem",
-            },
-            spacing: {
-              margin: "1.25rem",
-              "gutter-md": "1.5rem",
-              "gutter-lg": "2.5rem",
-              "space-xl": "3rem",
-              "space-xs": "0.25rem",
-              "space-md": "1rem",
-              "margin-md": "2.5rem",
-              "space-2xl": "5rem",
-              "space-lg": "1.75rem",
-              "space-sm": "0.5rem",
-              gutter: "1rem",
-              "margin-lg": "4rem",
-            },
-            fontFamily: {
-              "code-block": ["JetBrains Mono"],
-              "headline-sm": ["Newsreader"],
-              "label-sm": ["JetBrains Mono"],
-              "headline-lg": ["Newsreader"],
-              "headline-md": ["Newsreader"],
-              "display-hero-mobile": ["Newsreader"],
-              "code-inline": ["JetBrains Mono"],
-              "label-md": ["JetBrains Mono"],
-              "body-sm": ["Hanken Grotesk"],
-              "title-md": ["Hanken Grotesk"],
-              "display-hero": ["Newsreader"],
-              "body-lg": ["Newsreader"],
-              "headline-lg-mobile": ["Newsreader"],
-              "body-md": ["Hanken Grotesk"],
-            },
-            fontSize: {
-              "code-block": [
-                "0.8125rem",
-                { lineHeight: "1.65", fontWeight: "400" },
-              ],
-              "headline-sm": [
-                "1.5rem",
-                { lineHeight: "1.3", fontWeight: "500" },
-              ],
-              "label-sm": [
-                "0.6875rem",
-                {
-                  lineHeight: "1.2",
-                  letterSpacing: "0.08em",
-                  fontWeight: "500",
-                },
-              ],
-              "headline-lg": [
-                "3rem",
-                {
-                  lineHeight: "1.15",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "400",
-                },
-              ],
-              "headline-md": [
-                "2rem",
-                {
-                  lineHeight: "1.25",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "500",
-                },
-              ],
-              "display-hero-mobile": [
-                "2.75rem",
-                {
-                  lineHeight: "1.12",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "400",
-                },
-              ],
-              "code-inline": [
-                "0.875rem",
-                { lineHeight: "1.4", fontWeight: "400" },
-              ],
-              "label-md": [
-                "0.75rem",
-                {
-                  lineHeight: "1.2",
-                  letterSpacing: "0.06em",
-                  fontWeight: "500",
-                },
-              ],
-              "body-sm": [
-                "0.875rem",
-                { lineHeight: "1.55", fontWeight: "400" },
-              ],
-              "title-md": [
-                "1.125rem",
-                {
-                  lineHeight: "1.4",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "600",
-                },
-              ],
-              "display-hero": [
-                "4.5rem",
-                {
-                  lineHeight: "1.05",
-                  letterSpacing: "-0.03em",
-                  fontWeight: "400",
-                },
-              ],
-              "body-lg": ["1.25rem", { lineHeight: "1.6", fontWeight: "400" }],
-              "headline-lg-mobile": [
-                "2.25rem",
-                {
-                  lineHeight: "1.2",
-                  letterSpacing: "-0.015em",
-                  fontWeight: "400",
-                },
-              ],
-              "body-md": ["1rem", { lineHeight: "1.65", fontWeight: "400" }],
-            },
-          },
-        },
-      };
-    </script>
-  </head>
+    <script src="tailwind.config.js"></script>
+      </head>
   <body
     class="bg-background font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed relative"
   >
@@ -707,7 +379,7 @@ Fullstack &amp; Systems Engineer berbasis di Yogyakarta.
                   >
                   <span
                     class="font-title-md text-title-md text-primary font-semibold"
-                    >Pare - Pare, 21-03-2005</span
+                    >-</span
                   >
                 </div>
                 <div
@@ -840,10 +512,13 @@ Fullstack &amp; Systems Engineer berbasis di Yogyakarta.
                 Kurasi 03 Studi Kasus Utama
               </div> -->
             </div>
-            <!-- Case Study 01: Nusantara Ledger -->
-      
-            <!-- Archive Directory Callout Banner -->
-           
+            <!-- Archive Cards: Academic & Professional Documents -->
+            <h2
+              class="font-headline-lg text-headline-md lg:text-headline-lg text-primary"
+            >
+              English Task
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md" id="english-task-grid"></div>
           </section>
           <!-- SECTION 4: ENGINEERING PHILOSOPHY & CODE MANIFEST (DUAL COLUMN DESKTOP) -->
           <section
@@ -889,6 +564,61 @@ Fullstack &amp; Systems Engineer berbasis di Yogyakarta.
             <!-- Right Column: Tactile Code Block / Window Header (7 Columns) -->
            
           </section>
+
+          <!-- <section
+            class="reveal-item editorial-feature-section"
+            aria-labelledby="karya-editorial-heading"
+          >
+            <div class="editorial-feature-header">
+              <div class="editorial-kicker">// Karya</div>
+              <h2 id="karya-editorial-heading">More than output. It’s a process.</h2>
+            </div>
+
+            <div class="editorial-feature-grid">
+              <article class="editorial-feature-card card-intro">
+                <div class="editorial-card-header">
+                  <span class="editorial-card-tag">Video</span>
+                  <span class="editorial-card-number">01</span>
+                </div>
+                <h3>Self Introduction</h3>
+                <p>
+                  A concise self-introduction video introducing my academic
+                  background, education, and technical interests in clear,
+                  confident English for a professional audience.
+                </p>
+                <a href="#">Open in Google Drive</a>
+              </article>
+
+              <article class="editorial-feature-card card-writing">
+                <div class="editorial-card-header">
+                  <span class="editorial-card-tag">Formal letter</span>
+                  <span class="editorial-card-number">02</span>
+                </div>
+                <h3>Professional Writing</h3>
+                <p>
+                  A formal complaint letter structured to address delivery
+                  problems, communicate the issue professionally, and request a
+                  fair resolution with business-ready wording.
+                </p>
+                <a href="#">Open in Google Drive</a>
+              </article>
+
+              <article class="editorial-feature-card card-thesis">
+                <div class="editorial-card-header">
+                  <span class="editorial-card-tag">Academic</span>
+                  <span class="editorial-card-number">03</span>
+                </div>
+                <h3>Thesis Background</h3>
+                <p>
+                  An analytical thesis background explaining the research gap,
+                  supporting journal references, and the academic reasoning
+                  behind the final project narrative.
+                </p>
+                <a href="#">Open in Google Drive</a>
+              </article>
+            </div>
+          </section> -->
+
           <!-- SECTION 5: CONTACT & COLLABORATION / MARI BERBICARA -->
           <section
             class="reveal-item bg-surface-container-low rounded-xl p-space-xl lg:p-space-2xl shadow-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-xl mt-space-xl border border-surface-container"
@@ -1026,105 +756,6 @@ Fullstack &amp; Systems Engineer berbasis di Yogyakarta.
         </div>
       </div>
     </footer>
-    <script>
-      // 1. Interactive Copy Button Feedback
-      const copyBtn = document.getElementById("copy-btn");
-      const copyText = document.getElementById("copy-text");
-      const copyIcon = document.getElementById("copy-icon");
-      const emailVal = "halo@argapratama.dev";
-
-      if (copyBtn) {
-        copyBtn.addEventListener("click", async () => {
-          try {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              await navigator.clipboard.writeText(emailVal);
-            }
-          } catch (e) {
-            // Fallback
-            const temp = document.createElement("textarea");
-            temp.value = emailVal;
-            document.body.appendChild(temp);
-            temp.select();
-            document.execCommand("copy");
-            document.body.removeChild(temp);
-          }
-
-          copyText.innerText = "TERSALIN! ✓";
-          copyIcon.classList.remove("hidden");
-          copyBtn.classList.remove("bg-primary-container");
-          copyBtn.classList.add("bg-secondary");
-
-          setTimeout(() => {
-            copyText.innerText = "SALIN";
-            copyIcon.classList.add("hidden");
-            copyBtn.classList.remove("bg-secondary");
-            copyBtn.classList.add("bg-primary-container");
-          }, 2000);
-        });
-      }
-
-      // 2. Real-time Latency API Ticker
-      const latencyEl = document.getElementById("latency-counter");
-      if (latencyEl) {
-        const latencies = ["17ms", "18ms", "19ms", "18ms", "16ms", "20ms"];
-        let idx = 0;
-        setInterval(() => {
-          idx = (idx + 1) % latencies.length;
-          latencyEl.style.opacity = "0.5";
-          setTimeout(() => {
-            latencyEl.innerText = latencies[idx];
-            latencyEl.style.opacity = "1";
-          }, 150);
-        }, 4500);
-      }
-
-      // 3. Scroll Intersection Observer for Elements
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px 0px -40px 0px",
-        threshold: 0.1,
-      };
-
-      const revealObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".reveal-item").forEach((el) => {
-        revealObserver.observe(el);
-      });
-
-      // 4. Ambient Cursor Follower Glow
-      const glow = document.getElementById("ambient-glow");
-      if (
-        glow &&
-        window.matchMedia("(pointer: fine)").matches &&
-        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ) {
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let currentX = mouseX;
-        let currentY = mouseY;
-
-        window.addEventListener("mousemove", (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-        });
-
-        const loop = () => {
-          currentX += (mouseX - currentX) * 0.1;
-          currentY += (mouseY - currentY) * 0.1;
-          glow.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
-          requestAnimationFrame(loop);
-        };
-        requestAnimationFrame(loop);
-      } else if (glow) {
-        glow.style.display = "none";
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
